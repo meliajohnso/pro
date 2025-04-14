@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Quote Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .quote-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 90%;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    #quote {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    #author {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 1rem;
+      color: white;
+      background-color: #ff6b6b;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff4757;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box">
+    <h1>✨ Quote Generator ✨</h1>
+    <p id="quote">Click the button to get inspired!</p>
+    <p id="author">—</p>
+    <button onclick="generateQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
+      { text: "In the middle of every difficulty lies opportunity.", author: "Albert Einstein" },
+      { text: "Don’t count the days, make the days count.", author: "Muhammad Ali" },
+      { text: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+      { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+      { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
+      { text: "Everything you can imagine is real.", author: "Pablo Picasso" }
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').textContent = `"${quotes[randomIndex].text}"`;
+      document.getElementById('author').textContent = `— ${quotes[randomIndex].author}`;
+    }
+  </script>
+</body>
+</html>
